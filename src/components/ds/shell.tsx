@@ -28,6 +28,15 @@ const nav: { group: string; items: { to: string; label: string }[] }[] = [
   { group: "Platforms", items: [{ to: "/platforms", label: "iOS / Web" }] },
 ];
 
+function OpenSourceLink() {
+  return (
+    <div className="space-y-2 text-xs text-muted-foreground">
+      <a href="https://github.com/cashtsai/fliper-design-system" target="_blank" rel="noopener noreferrer" className="font-mono transition-colors hover:text-ink">原始碼 Open Source ↗</a>
+      <p className="leading-relaxed">本設計系統的 tokens 與文件開源(MIT);FLiPER 名稱與標誌為商標,保留權利。</p>
+    </div>
+  );
+}
+
 function ThemeToggle() {
   const [dark, setDark] = useState(false);
   useEffect(() => setDark(document.documentElement.classList.contains("dark")), []);
@@ -79,7 +88,7 @@ export function Shell({ children }: { children: ReactNode }) {
         <p className="kicker mt-2 text-muted-foreground">DESIGN SYSTEM</p>
         <div className="my-6 border-t" />
         {navList}
-        <div className="mt-10"><ThemeToggle /></div>
+        <div className="mt-10 space-y-4 border-t pt-4"><OpenSourceLink /><ThemeToggle /></div>
       </aside>
       <header className="sticky top-0 z-20 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 border-b bg-paper/95 px-5 py-3 backdrop-blur lg:hidden">
         <Link to="/" className="flex min-w-0 items-center gap-2"><Logo className="h-6 shrink-0" /><span className="kicker truncate text-muted-foreground">DESIGN SYSTEM</span></Link>
@@ -95,6 +104,7 @@ export function Shell({ children }: { children: ReactNode }) {
           <div className="flex items-center gap-3"><span className="h-px flex-1 bg-border" /><span className="text-[9px] text-ink">◆</span><span className="h-px flex-1 bg-border" /></div>
           <p className="mt-4 text-center font-serif text-sm text-muted-foreground">從渺小的自己出發,成為翻轉世界的人</p>
           <p className="kicker mt-2 text-center text-muted-foreground">KEEP EXPLORING · DESIGN.FLIPERMAG.COM</p>
+          <div className="mt-4 text-center"><OpenSourceLink /></div>
         </footer>
       </main>
     </div>
