@@ -28,3 +28,4 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+- Site shell (sidebar, theme toggle) lives in src/components/ds/shell.tsx wrapped around <Outlet /> in __root; editorial building blocks in src/components/ds/editorial.tsx and doc scaffolding in doc.tsx — pages compose these so the spec site uses its own components.

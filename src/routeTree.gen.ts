@@ -10,33 +10,206 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CoverSystemRouteImport } from './routes/cover-system'
+import { Route as PatternsRouteImport } from './routes/patterns'
+import { Route as PlatformsRouteImport } from './routes/platforms'
+import { Route as ComponentsButtonsRouteImport } from './routes/components/buttons'
+import { Route as ComponentsBylineRouteImport } from './routes/components/byline'
+import { Route as ComponentsCodeMarkRouteImport } from './routes/components/code-mark'
+import { Route as ComponentsCoverCardRouteImport } from './routes/components/cover-card'
+import { Route as ComponentsEditorsNoteRouteImport } from './routes/components/editors-note'
+import { Route as ComponentsKickerRouteImport } from './routes/components/kicker'
+import { Route as FoundationsColorRouteImport } from './routes/foundations/color'
+import { Route as FoundationsMotifsRouteImport } from './routes/foundations/motifs'
+import { Route as FoundationsSpacingRouteImport } from './routes/foundations/spacing'
+import { Route as FoundationsTypographyRouteImport } from './routes/foundations/typography'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoverSystemRoute = CoverSystemRouteImport.update({
+  id: '/cover-system',
+  path: '/cover-system',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PatternsRoute = PatternsRouteImport.update({
+  id: '/patterns',
+  path: '/patterns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlatformsRoute = PlatformsRouteImport.update({
+  id: '/platforms',
+  path: '/platforms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsButtonsRoute = ComponentsButtonsRouteImport.update({
+  id: '/components/buttons',
+  path: '/components/buttons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsBylineRoute = ComponentsBylineRouteImport.update({
+  id: '/components/byline',
+  path: '/components/byline',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsCodeMarkRoute = ComponentsCodeMarkRouteImport.update({
+  id: '/components/code-mark',
+  path: '/components/code-mark',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsCoverCardRoute = ComponentsCoverCardRouteImport.update({
+  id: '/components/cover-card',
+  path: '/components/cover-card',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsEditorsNoteRoute = ComponentsEditorsNoteRouteImport.update({
+  id: '/components/editors-note',
+  path: '/components/editors-note',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComponentsKickerRoute = ComponentsKickerRouteImport.update({
+  id: '/components/kicker',
+  path: '/components/kicker',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FoundationsColorRoute = FoundationsColorRouteImport.update({
+  id: '/foundations/color',
+  path: '/foundations/color',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FoundationsMotifsRoute = FoundationsMotifsRouteImport.update({
+  id: '/foundations/motifs',
+  path: '/foundations/motifs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FoundationsSpacingRoute = FoundationsSpacingRouteImport.update({
+  id: '/foundations/spacing',
+  path: '/foundations/spacing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FoundationsTypographyRoute = FoundationsTypographyRouteImport.update({
+  id: '/foundations/typography',
+  path: '/foundations/typography',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cover-system': typeof CoverSystemRoute
+  '/patterns': typeof PatternsRoute
+  '/platforms': typeof PlatformsRoute
+  '/components/buttons': typeof ComponentsButtonsRoute
+  '/components/byline': typeof ComponentsBylineRoute
+  '/components/code-mark': typeof ComponentsCodeMarkRoute
+  '/components/cover-card': typeof ComponentsCoverCardRoute
+  '/components/editors-note': typeof ComponentsEditorsNoteRoute
+  '/components/kicker': typeof ComponentsKickerRoute
+  '/foundations/color': typeof FoundationsColorRoute
+  '/foundations/motifs': typeof FoundationsMotifsRoute
+  '/foundations/spacing': typeof FoundationsSpacingRoute
+  '/foundations/typography': typeof FoundationsTypographyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cover-system': typeof CoverSystemRoute
+  '/patterns': typeof PatternsRoute
+  '/platforms': typeof PlatformsRoute
+  '/components/buttons': typeof ComponentsButtonsRoute
+  '/components/byline': typeof ComponentsBylineRoute
+  '/components/code-mark': typeof ComponentsCodeMarkRoute
+  '/components/cover-card': typeof ComponentsCoverCardRoute
+  '/components/editors-note': typeof ComponentsEditorsNoteRoute
+  '/components/kicker': typeof ComponentsKickerRoute
+  '/foundations/color': typeof FoundationsColorRoute
+  '/foundations/motifs': typeof FoundationsMotifsRoute
+  '/foundations/spacing': typeof FoundationsSpacingRoute
+  '/foundations/typography': typeof FoundationsTypographyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cover-system': typeof CoverSystemRoute
+  '/patterns': typeof PatternsRoute
+  '/platforms': typeof PlatformsRoute
+  '/components/buttons': typeof ComponentsButtonsRoute
+  '/components/byline': typeof ComponentsBylineRoute
+  '/components/code-mark': typeof ComponentsCodeMarkRoute
+  '/components/cover-card': typeof ComponentsCoverCardRoute
+  '/components/editors-note': typeof ComponentsEditorsNoteRoute
+  '/components/kicker': typeof ComponentsKickerRoute
+  '/foundations/color': typeof FoundationsColorRoute
+  '/foundations/motifs': typeof FoundationsMotifsRoute
+  '/foundations/spacing': typeof FoundationsSpacingRoute
+  '/foundations/typography': typeof FoundationsTypographyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/cover-system'
+    | '/patterns'
+    | '/platforms'
+    | '/components/buttons'
+    | '/components/byline'
+    | '/components/code-mark'
+    | '/components/cover-card'
+    | '/components/editors-note'
+    | '/components/kicker'
+    | '/foundations/color'
+    | '/foundations/motifs'
+    | '/foundations/spacing'
+    | '/foundations/typography'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/cover-system'
+    | '/patterns'
+    | '/platforms'
+    | '/components/buttons'
+    | '/components/byline'
+    | '/components/code-mark'
+    | '/components/cover-card'
+    | '/components/editors-note'
+    | '/components/kicker'
+    | '/foundations/color'
+    | '/foundations/motifs'
+    | '/foundations/spacing'
+    | '/foundations/typography'
+  id:
+    | '__root__'
+    | '/'
+    | '/cover-system'
+    | '/patterns'
+    | '/platforms'
+    | '/components/buttons'
+    | '/components/byline'
+    | '/components/code-mark'
+    | '/components/cover-card'
+    | '/components/editors-note'
+    | '/components/kicker'
+    | '/foundations/color'
+    | '/foundations/motifs'
+    | '/foundations/spacing'
+    | '/foundations/typography'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CoverSystemRoute: typeof CoverSystemRoute
+  PatternsRoute: typeof PatternsRoute
+  PlatformsRoute: typeof PlatformsRoute
+  ComponentsButtonsRoute: typeof ComponentsButtonsRoute
+  ComponentsBylineRoute: typeof ComponentsBylineRoute
+  ComponentsCodeMarkRoute: typeof ComponentsCodeMarkRoute
+  ComponentsCoverCardRoute: typeof ComponentsCoverCardRoute
+  ComponentsEditorsNoteRoute: typeof ComponentsEditorsNoteRoute
+  ComponentsKickerRoute: typeof ComponentsKickerRoute
+  FoundationsColorRoute: typeof FoundationsColorRoute
+  FoundationsMotifsRoute: typeof FoundationsMotifsRoute
+  FoundationsSpacingRoute: typeof FoundationsSpacingRoute
+  FoundationsTypographyRoute: typeof FoundationsTypographyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +221,115 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cover-system': {
+      id: '/cover-system'
+      path: '/cover-system'
+      fullPath: '/cover-system'
+      preLoaderRoute: typeof CoverSystemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/patterns': {
+      id: '/patterns'
+      path: '/patterns'
+      fullPath: '/patterns'
+      preLoaderRoute: typeof PatternsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/platforms': {
+      id: '/platforms'
+      path: '/platforms'
+      fullPath: '/platforms'
+      preLoaderRoute: typeof PlatformsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/buttons': {
+      id: '/components/buttons'
+      path: '/components/buttons'
+      fullPath: '/components/buttons'
+      preLoaderRoute: typeof ComponentsButtonsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/byline': {
+      id: '/components/byline'
+      path: '/components/byline'
+      fullPath: '/components/byline'
+      preLoaderRoute: typeof ComponentsBylineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/code-mark': {
+      id: '/components/code-mark'
+      path: '/components/code-mark'
+      fullPath: '/components/code-mark'
+      preLoaderRoute: typeof ComponentsCodeMarkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/cover-card': {
+      id: '/components/cover-card'
+      path: '/components/cover-card'
+      fullPath: '/components/cover-card'
+      preLoaderRoute: typeof ComponentsCoverCardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/editors-note': {
+      id: '/components/editors-note'
+      path: '/components/editors-note'
+      fullPath: '/components/editors-note'
+      preLoaderRoute: typeof ComponentsEditorsNoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/components/kicker': {
+      id: '/components/kicker'
+      path: '/components/kicker'
+      fullPath: '/components/kicker'
+      preLoaderRoute: typeof ComponentsKickerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/foundations/color': {
+      id: '/foundations/color'
+      path: '/foundations/color'
+      fullPath: '/foundations/color'
+      preLoaderRoute: typeof FoundationsColorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/foundations/motifs': {
+      id: '/foundations/motifs'
+      path: '/foundations/motifs'
+      fullPath: '/foundations/motifs'
+      preLoaderRoute: typeof FoundationsMotifsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/foundations/spacing': {
+      id: '/foundations/spacing'
+      path: '/foundations/spacing'
+      fullPath: '/foundations/spacing'
+      preLoaderRoute: typeof FoundationsSpacingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/foundations/typography': {
+      id: '/foundations/typography'
+      path: '/foundations/typography'
+      fullPath: '/foundations/typography'
+      preLoaderRoute: typeof FoundationsTypographyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CoverSystemRoute: CoverSystemRoute,
+  PatternsRoute: PatternsRoute,
+  PlatformsRoute: PlatformsRoute,
+  ComponentsButtonsRoute: ComponentsButtonsRoute,
+  ComponentsBylineRoute: ComponentsBylineRoute,
+  ComponentsCodeMarkRoute: ComponentsCodeMarkRoute,
+  ComponentsCoverCardRoute: ComponentsCoverCardRoute,
+  ComponentsEditorsNoteRoute: ComponentsEditorsNoteRoute,
+  ComponentsKickerRoute: ComponentsKickerRoute,
+  FoundationsColorRoute: FoundationsColorRoute,
+  FoundationsMotifsRoute: FoundationsMotifsRoute,
+  FoundationsSpacingRoute: FoundationsSpacingRoute,
+  FoundationsTypographyRoute: FoundationsTypographyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
