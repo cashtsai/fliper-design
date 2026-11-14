@@ -25,7 +25,7 @@ export const heritage = {
   grays: ['#111111', '#444444', '#999999', '#DDDDDD', '#EEEEEE'],
   yellow: '#FFC612', status: 'retired',
 } as const;
-export const logoGuidance = { clearSpaceHeightRatio: .5, minWidthWeb: 80, minWidthPrint: 20 };
+export const logoGuidance = { clearSpaceCapHeightRatio: 1, minWidthWeb: 96, absoluteMinWidthWeb: 80, minWidthPrint: 24, compactMark: 'F' } as const;
 export function contrast(foreground: string, background: string) {
   const luminance = (hex: string) => {
     const channels = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255)

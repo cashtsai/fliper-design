@@ -14,8 +14,8 @@ const scale = [
   ["title", "font-serif text-3xl font-bold leading-[1.3]", "30 / 700 / 1.3", "封面標題 Serif Title", "FLiPERFont.title"],
   ["heading", "font-display text-2xl font-bold leading-[1.35]", "24 / 700 / 1.35", "章節標題 Heading", "FLiPERFont.heading"],
   ["body", "font-sans text-[17px] leading-[1.9]", "17 / 400 / 1.9", "從渺小的自己出發,成為翻轉世界的人。", "FLiPERFont.body"],
-  ["caption", "font-sans text-[13px] text-muted-foreground leading-[1.6]", "13 / 400 / 1.6", "攝影 / 林以晴 · 2026.11.14", "FLiPERFont.caption"],
-  ["label", "kicker text-ink", "11 / 500 / mono · tracking .18em", "KEEP EXPLORING 128406", "FLiPERFont.label"],
+  ["caption", "font-sans text-[13px] text-muted-foreground leading-[1.6]", "13 / 400 / 1.6", "FLiPER 觀點｜人物", "FLiPERFont.caption"],
+  ["label", "kicker text-ink", "11 / 500 / mono · tracking .18em", "KEEP EXPLORING 393858", "FLiPERFont.label"],
 ] as const;
 
 function TypePage() {
@@ -59,7 +59,7 @@ function TypePage() {
       </Section>
       <Section label="CJK & LATIN" title="中英混排，是同一句話">
         <p className="leading-[1.9]">中文使用繁體字形；英文標題由 Roboto Slab 承接，中文落入 Noto Serif TC，不以英文字型硬套漢字。內文 Noto Sans TC 搭配自然的 Latin 字形；代幣名與數字才切換等寬。中文標點使用全形，英文句內標點使用半形；品牌始終拼作 FLiPER。</p>
-        <Example><p className="font-serif text-xl leading-[1.9]">在 FLiPER，我們以 Design 看見生活。<br/>從一件作品，到作品背後的人。</p><p className="mt-4 font-sans text-[17px] leading-[1.9]">文章 128406 · 設計 Idea · 林以晴｜設計師的日常</p></Example>
+        <Example><p className="font-serif text-xl leading-[1.9]">在 FLiPER，我們以 Design 看見生活。<br/>從一件作品，到作品背後的人。</p><p className="mt-4 font-sans text-[17px] leading-[1.9]">文章 393858 · Creator · FLiPER 觀點｜人物</p></Example>
         <p className="text-sm leading-relaxed text-muted-foreground">中英文之間保留一致的自然空隙，不靠連續空白對齊。標題不拆開 FLiPER 或 token 名；中文可自然換行，避免行首句末標點。窄螢幕優先換行與調整欄位，不把全文縮小。</p>
       </Section>
       <Section label="HAN WEIGHTS" title="漢字字重對映">

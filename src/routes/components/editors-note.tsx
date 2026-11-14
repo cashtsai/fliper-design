@@ -9,7 +9,7 @@ export const Route = createFileRoute("/components/editors-note")({
   component: () => (
     <DocPage kicker="COMPONENTS · EDITOR'S NOTE" title="編者按 Editor's Note" intro={<p>這是「FLiPER 對讀者說話」的地方,也是黎明橘作為聲音出現的<strong className="text-ink">唯一</strong>位置。</p>}>
       <Section title="範例" why="整個系統都是黑白,只有編輯的聲音帶色——讀者一眼就知道:這是我們想對你說的話。">
-        <Example><EditorsNote>她說,設計不是讓東西變美,而是讓人重新看見。我們選這篇,因為它提醒了每個在清晨出發的人:渺小,也是起點。</EditorsNote></Example>
+        <Example><EditorsNote>從一件作品，到作品背後的人；每一次觀看，都是探索的起點。</EditorsNote></Example>
         <Rule do="每篇內容最多一則編者按;署名格式固定。" dont="把橘色直線用於一般引言或提示框。" />
       </Section>
       <Section title="程式碼">

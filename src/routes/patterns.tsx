@@ -2,13 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Code, DocPage, Example, Rule, Section } from "@/components/ds/doc";
 import { AppStoreBadge, CoverCard, Diamond, EditorsNote, Masthead, PrimaryButton } from "@/components/ds/editorial";
 import { seo } from "@/lib/seo";
+import { sampleArticles } from "@/lib/sample-articles";
 
 export const Route = createFileRoute("/patterns")({
   head: () => seo("Patterns 模式", "FLiPER 版面模式:每日精選、編者的聲音、成為明日說故事的人 CTA。"),
   component: () => (
     <DocPage kicker="PATTERNS" title="把元件組成一期刊物">
       <Section label="01" title="Daily Pick 每日精選" why="刊頭 + 一張封面卡 + 編者按:一天只推一篇,讓選擇本身成為內容。">
-        <Example className="mx-auto max-w-sm space-y-6"><Masthead kicker="DAILY PICK · 2026.11.14" /><CoverCard /><EditorsNote>渺小,也是起點。</EditorsNote></Example>
+        <Example className="mx-auto max-w-sm space-y-6"><Masthead kicker="DAILY PICK · 2026.11.14" /><CoverCard {...sampleArticles[0]} /><EditorsNote>渺小,也是起點。</EditorsNote></Example>
       </Section>
       <Section label="02" title="Editor's Voice 編者的聲音" why="橘色直線只在這裡出現,讀者學會辨認:這是 FLiPER 本人。">
         <Example><p className="mb-6 leading-[1.9]">……內文以黑體排版,安靜地陳述受訪者的故事。</p><EditorsNote attribution="EDITOR'S VOICE ── FLiPER 編輯室">我們相信每個人都有一個值得被說出來的故事。</EditorsNote></Example>

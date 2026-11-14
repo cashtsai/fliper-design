@@ -33,3 +33,4 @@ use the editor.
 - Canonical palette, type scale and contrast calculations live in src/lib/atlas.ts so documentation and numeric tests share one source.
 - Shared spec tables and per-component behavioral guidance live in src/components/ds/atlas.tsx; static editorial content must not acquire fake focus or disabled states.
 - Retired palette tokens are scoped to .heritage-page; historical lockups reuse the official asset geometry so archive colors cannot enter current pages.
+- Editorial examples share supplied metadata in src/lib/sample-articles.ts; omit missing author, column or ID fields rather than inventing them, so examples remain consistent and factual.

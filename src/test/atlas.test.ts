@@ -1,7 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { palette, contrast, heritage, typeScale } from '@/lib/atlas';
+import { palette, contrast, heritage, typeScale, logoGuidance } from '@/lib/atlas';
 
 describe('FLiPER atlas numeric rules', () => {
+  it('sets the digital wordmark minimum to 96px', () => { expect(logoGuidance.minWidthWeb).toBe(96); });
+  it('sets the absolute digital floor to 80px', () => { expect(logoGuidance.absoluteMinWidthWeb).toBe(80); });
+  it('sets the print wordmark minimum to 24mm', () => { expect(logoGuidance.minWidthPrint).toBe(24); });
+  it('reserves one F cap-height on every side', () => { expect(logoGuidance.clearSpaceCapHeightRatio).toBe(1); });
+  it('uses only the F mark for compact icon contexts', () => { expect(logoGuidance.compactMark).toBe('F'); });
   it('uses the requested light and dark dawn colors only for the current accent', () => {
     const accent = palette.find(p => p.name === 'accent');
     expect(accent?.light).toBe('#A94700'); expect(accent?.dark).toBe('#E59B5B');

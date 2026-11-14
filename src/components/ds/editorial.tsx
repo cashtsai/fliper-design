@@ -2,6 +2,7 @@ import type { ReactNode, ComponentProps } from "react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/fliper-logo.png.asset.json";
 import cover from "@/assets/cover-dawn-studio.jpg";
+import { sampleArticles } from "@/lib/sample-articles";
 
 export const coverImage = cover;
 
@@ -37,12 +38,11 @@ export function Masthead({ kicker = "KEEP EXPLORING · ISSUE 2026" }: { kicker?:
   );
 }
 
-export function Byline({ name, column }: { name: string; column: string }) {
+export function Byline({ name, column }: { name: string; column?: string }) {
   return (
     <p className="text-sm">
       <span className="font-serif text-ink">{name}</span>
-      <span className="text-faint">｜</span>
-      <span className="text-muted-foreground">{column}</span>
+      {column && <><span className="text-faint">｜</span><span className="text-muted-foreground">{column}</span></>}
     </p>
   );
 }
@@ -67,11 +67,11 @@ export function Kicker({ children }: { children: ReactNode }) {
 export const categories = ["藝術 Creator", "設計 Idea", "品牌 Brand", "城市 City", "觀點 Opinion"];
 
 export function CoverCard({
-  title = "在清晨的工作室裡,重新學會觀看",
-  name = "林以晴",
-  column = "設計師的日常",
-  kicker = "設計 Idea",
-  code = "128406",
+  title = sampleArticles[0].title,
+  name,
+  column,
+  kicker = sampleArticles[0].kicker,
+  code,
 }: { title?: string; name?: string; column?: string; kicker?: string; code?: string }) {
   return (
     <article className="overflow-hidden rounded-lg border bg-card shadow-editorial">
@@ -79,11 +79,11 @@ export function CoverCard({
       <div className="space-y-3 p-5">
         <div className="flex items-center justify-between">
           <Kicker>{kicker}</Kicker>
-          <CodeMark code={code} />
+          {code && <CodeMark code={code} />}
         </div>
         <h3 className="font-serif text-xl font-semibold leading-snug text-ink">{title}</h3>
         <Hairline />
-        <Byline name={name} column={column} />
+        {name && <Byline name={name} {...(column ? { column } : {})} />}
       </div>
     </article>
   );
@@ -95,11 +95,11 @@ export function FullCover() {
       <Masthead kicker="FLiPER EDITORIAL DAILY · FED" />
       <img src={cover} alt="封面示意:清晨工作室中的設計師" width={896} height={1152} className="mt-5 aspect-[4/5] w-full object-cover" />
       <div className="mt-5 text-center">
-        <Kicker>設計 Idea</Kicker>
-        <h2 className="mt-3 font-serif text-3xl font-bold leading-tight text-ink">在清晨的工作室裡,<br />重新學會觀看</h2>
+        <Kicker>{sampleArticles[0].kicker}</Kicker>
+        <h2 className="mt-3 font-serif text-3xl font-bold leading-tight text-ink">{sampleArticles[0].title}</h2>
         <Diamond className="mx-auto my-4 w-40" />
-        <Byline name="林以晴" column="設計師的日常" />
-        <div className="mt-4"><CodeMark code="128406" /></div>
+        <Byline name={sampleArticles[0].name} column={sampleArticles[0].column} />
+        <div className="mt-4"><CodeMark code={sampleArticles[0].code} /></div>
       </div>
     </div>
   );
