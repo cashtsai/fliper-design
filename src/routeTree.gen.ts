@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BrandStoryRouteImport } from './routes/brand-story'
 import { Route as CoverSystemRouteImport } from './routes/cover-system'
+import { Route as DesignHeritageRouteImport } from './routes/design-heritage'
 import { Route as PatternsRouteImport } from './routes/patterns'
 import { Route as PlatformsRouteImport } from './routes/platforms'
 import { Route as ComponentsButtonsRouteImport } from './routes/components/buttons'
@@ -19,7 +21,9 @@ import { Route as ComponentsCodeMarkRouteImport } from './routes/components/code
 import { Route as ComponentsCoverCardRouteImport } from './routes/components/cover-card'
 import { Route as ComponentsEditorsNoteRouteImport } from './routes/components/editors-note'
 import { Route as ComponentsKickerRouteImport } from './routes/components/kicker'
+import { Route as FoundationsAccessibilityRouteImport } from './routes/foundations/accessibility'
 import { Route as FoundationsColorRouteImport } from './routes/foundations/color'
+import { Route as FoundationsLogoRouteImport } from './routes/foundations/logo'
 import { Route as FoundationsMotifsRouteImport } from './routes/foundations/motifs'
 import { Route as FoundationsSpacingRouteImport } from './routes/foundations/spacing'
 import { Route as FoundationsTypographyRouteImport } from './routes/foundations/typography'
@@ -29,9 +33,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrandStoryRoute = BrandStoryRouteImport.update({
+  id: '/brand-story',
+  path: '/brand-story',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CoverSystemRoute = CoverSystemRouteImport.update({
   id: '/cover-system',
   path: '/cover-system',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DesignHeritageRoute = DesignHeritageRouteImport.update({
+  id: '/design-heritage',
+  path: '/design-heritage',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PatternsRoute = PatternsRouteImport.update({
@@ -74,9 +88,20 @@ const ComponentsKickerRoute = ComponentsKickerRouteImport.update({
   path: '/components/kicker',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FoundationsAccessibilityRoute =
+  FoundationsAccessibilityRouteImport.update({
+    id: '/foundations/accessibility',
+    path: '/foundations/accessibility',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const FoundationsColorRoute = FoundationsColorRouteImport.update({
   id: '/foundations/color',
   path: '/foundations/color',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FoundationsLogoRoute = FoundationsLogoRouteImport.update({
+  id: '/foundations/logo',
+  path: '/foundations/logo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FoundationsMotifsRoute = FoundationsMotifsRouteImport.update({
@@ -97,7 +122,9 @@ const FoundationsTypographyRoute = FoundationsTypographyRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/brand-story': typeof BrandStoryRoute
   '/cover-system': typeof CoverSystemRoute
+  '/design-heritage': typeof DesignHeritageRoute
   '/patterns': typeof PatternsRoute
   '/platforms': typeof PlatformsRoute
   '/components/buttons': typeof ComponentsButtonsRoute
@@ -106,14 +133,18 @@ export interface FileRoutesByFullPath {
   '/components/cover-card': typeof ComponentsCoverCardRoute
   '/components/editors-note': typeof ComponentsEditorsNoteRoute
   '/components/kicker': typeof ComponentsKickerRoute
+  '/foundations/accessibility': typeof FoundationsAccessibilityRoute
   '/foundations/color': typeof FoundationsColorRoute
+  '/foundations/logo': typeof FoundationsLogoRoute
   '/foundations/motifs': typeof FoundationsMotifsRoute
   '/foundations/spacing': typeof FoundationsSpacingRoute
   '/foundations/typography': typeof FoundationsTypographyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/brand-story': typeof BrandStoryRoute
   '/cover-system': typeof CoverSystemRoute
+  '/design-heritage': typeof DesignHeritageRoute
   '/patterns': typeof PatternsRoute
   '/platforms': typeof PlatformsRoute
   '/components/buttons': typeof ComponentsButtonsRoute
@@ -122,7 +153,9 @@ export interface FileRoutesByTo {
   '/components/cover-card': typeof ComponentsCoverCardRoute
   '/components/editors-note': typeof ComponentsEditorsNoteRoute
   '/components/kicker': typeof ComponentsKickerRoute
+  '/foundations/accessibility': typeof FoundationsAccessibilityRoute
   '/foundations/color': typeof FoundationsColorRoute
+  '/foundations/logo': typeof FoundationsLogoRoute
   '/foundations/motifs': typeof FoundationsMotifsRoute
   '/foundations/spacing': typeof FoundationsSpacingRoute
   '/foundations/typography': typeof FoundationsTypographyRoute
@@ -130,7 +163,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/brand-story': typeof BrandStoryRoute
   '/cover-system': typeof CoverSystemRoute
+  '/design-heritage': typeof DesignHeritageRoute
   '/patterns': typeof PatternsRoute
   '/platforms': typeof PlatformsRoute
   '/components/buttons': typeof ComponentsButtonsRoute
@@ -139,7 +174,9 @@ export interface FileRoutesById {
   '/components/cover-card': typeof ComponentsCoverCardRoute
   '/components/editors-note': typeof ComponentsEditorsNoteRoute
   '/components/kicker': typeof ComponentsKickerRoute
+  '/foundations/accessibility': typeof FoundationsAccessibilityRoute
   '/foundations/color': typeof FoundationsColorRoute
+  '/foundations/logo': typeof FoundationsLogoRoute
   '/foundations/motifs': typeof FoundationsMotifsRoute
   '/foundations/spacing': typeof FoundationsSpacingRoute
   '/foundations/typography': typeof FoundationsTypographyRoute
@@ -148,7 +185,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/brand-story'
     | '/cover-system'
+    | '/design-heritage'
     | '/patterns'
     | '/platforms'
     | '/components/buttons'
@@ -157,14 +196,18 @@ export interface FileRouteTypes {
     | '/components/cover-card'
     | '/components/editors-note'
     | '/components/kicker'
+    | '/foundations/accessibility'
     | '/foundations/color'
+    | '/foundations/logo'
     | '/foundations/motifs'
     | '/foundations/spacing'
     | '/foundations/typography'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/brand-story'
     | '/cover-system'
+    | '/design-heritage'
     | '/patterns'
     | '/platforms'
     | '/components/buttons'
@@ -173,14 +216,18 @@ export interface FileRouteTypes {
     | '/components/cover-card'
     | '/components/editors-note'
     | '/components/kicker'
+    | '/foundations/accessibility'
     | '/foundations/color'
+    | '/foundations/logo'
     | '/foundations/motifs'
     | '/foundations/spacing'
     | '/foundations/typography'
   id:
     | '__root__'
     | '/'
+    | '/brand-story'
     | '/cover-system'
+    | '/design-heritage'
     | '/patterns'
     | '/platforms'
     | '/components/buttons'
@@ -189,7 +236,9 @@ export interface FileRouteTypes {
     | '/components/cover-card'
     | '/components/editors-note'
     | '/components/kicker'
+    | '/foundations/accessibility'
     | '/foundations/color'
+    | '/foundations/logo'
     | '/foundations/motifs'
     | '/foundations/spacing'
     | '/foundations/typography'
@@ -197,7 +246,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BrandStoryRoute: typeof BrandStoryRoute
   CoverSystemRoute: typeof CoverSystemRoute
+  DesignHeritageRoute: typeof DesignHeritageRoute
   PatternsRoute: typeof PatternsRoute
   PlatformsRoute: typeof PlatformsRoute
   ComponentsButtonsRoute: typeof ComponentsButtonsRoute
@@ -206,7 +257,9 @@ export interface RootRouteChildren {
   ComponentsCoverCardRoute: typeof ComponentsCoverCardRoute
   ComponentsEditorsNoteRoute: typeof ComponentsEditorsNoteRoute
   ComponentsKickerRoute: typeof ComponentsKickerRoute
+  FoundationsAccessibilityRoute: typeof FoundationsAccessibilityRoute
   FoundationsColorRoute: typeof FoundationsColorRoute
+  FoundationsLogoRoute: typeof FoundationsLogoRoute
   FoundationsMotifsRoute: typeof FoundationsMotifsRoute
   FoundationsSpacingRoute: typeof FoundationsSpacingRoute
   FoundationsTypographyRoute: typeof FoundationsTypographyRoute
@@ -221,11 +274,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brand-story': {
+      id: '/brand-story'
+      path: '/brand-story'
+      fullPath: '/brand-story'
+      preLoaderRoute: typeof BrandStoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cover-system': {
       id: '/cover-system'
       path: '/cover-system'
       fullPath: '/cover-system'
       preLoaderRoute: typeof CoverSystemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/design-heritage': {
+      id: '/design-heritage'
+      path: '/design-heritage'
+      fullPath: '/design-heritage'
+      preLoaderRoute: typeof DesignHeritageRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/patterns': {
@@ -284,11 +351,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsKickerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/foundations/accessibility': {
+      id: '/foundations/accessibility'
+      path: '/foundations/accessibility'
+      fullPath: '/foundations/accessibility'
+      preLoaderRoute: typeof FoundationsAccessibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/foundations/color': {
       id: '/foundations/color'
       path: '/foundations/color'
       fullPath: '/foundations/color'
       preLoaderRoute: typeof FoundationsColorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/foundations/logo': {
+      id: '/foundations/logo'
+      path: '/foundations/logo'
+      fullPath: '/foundations/logo'
+      preLoaderRoute: typeof FoundationsLogoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/foundations/motifs': {
@@ -317,7 +398,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BrandStoryRoute: BrandStoryRoute,
   CoverSystemRoute: CoverSystemRoute,
+  DesignHeritageRoute: DesignHeritageRoute,
   PatternsRoute: PatternsRoute,
   PlatformsRoute: PlatformsRoute,
   ComponentsButtonsRoute: ComponentsButtonsRoute,
@@ -326,7 +409,9 @@ const rootRouteChildren: RootRouteChildren = {
   ComponentsCoverCardRoute: ComponentsCoverCardRoute,
   ComponentsEditorsNoteRoute: ComponentsEditorsNoteRoute,
   ComponentsKickerRoute: ComponentsKickerRoute,
+  FoundationsAccessibilityRoute: FoundationsAccessibilityRoute,
   FoundationsColorRoute: FoundationsColorRoute,
+  FoundationsLogoRoute: FoundationsLogoRoute,
   FoundationsMotifsRoute: FoundationsMotifsRoute,
   FoundationsSpacingRoute: FoundationsSpacingRoute,
   FoundationsTypographyRoute: FoundationsTypographyRoute,

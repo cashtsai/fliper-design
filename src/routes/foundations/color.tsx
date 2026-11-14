@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Code, Copyable, DocPage, Rule, Section } from "@/components/ds/doc";
+import { SpecTable } from "@/components/ds/atlas";
+import { palette } from "@/lib/atlas";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/foundations/color")({
@@ -7,19 +9,7 @@ export const Route = createFileRoute("/foundations/color")({
   component: ColorPage,
 });
 
-const tokens = [
-  ["ink", "#1A1A1A", "#F2F0EB", "主要文字、標題"],
-  ["inkSoft", "#333333", "#D4D1CC", "次要文字、內文"],
-  ["paper", "#FAF8F3", "#161513", "頁面背景"],
-  ["paperDeep", "#EFEBE2", "#26261F", "凹陷背景、區塊底"],
-  ["card", "#FFFFFF", "#282826", "卡片與表面"],
-  ["muted", "#6E6A62", "#A39E96", "說明文字、後設資訊"],
-  ["faint", "#B3AEA4", "#676460", "極淡文字、placeholder"],
-  ["border", "rgba(0,0,0,.10)", "rgba(255,255,255,.14)", "細線、分隔"],
-  ["accent", "#A94700", "#E59B5B", "黎明橘:連結、編者聲音、小標記"],
-  ["tan", "#B49A7C", "#B49A7C", "溫暖中性細節"],
-  ["success", "#2BAB9F", "#2BAB9F", "僅用於狀態,非重點色"],
-] as const;
+const tokens = palette.map(p => [p.name, p.light, p.dark, p.role] as const);
 
 function Swatch({ c, bg }: { c: string; bg: string }) {
   return <div className="h-16 rounded-md border" style={{ background: c, borderColor: bg === "dark" ? "rgba(255,255,255,.14)" : "rgba(0,0,0,.1)" }} />;
@@ -27,11 +17,11 @@ function Swatch({ c, bg }: { c: string; bg: string }) {
 
 function ColorPage() {
   return (
-    <DocPage kicker="FOUNDATIONS · COLOR" title="墨、紙,與一抹黎明" intro={<p>單色基底承載一切內容;<span className="doc-link no-underline">dawn orange</span> 是唯一的重點色。亮色模式的 #A94700 在 paper 上對比 5.85:1,可作為可操作的連結;暗色模式的 #E59B5B 則是明亮的裝飾橘。</p>}>
+    <DocPage kicker="FOUNDATIONS · COLOR" title="墨、紙,與一抹黎明" intro={<p>單色基底承載一切內容;<span className="doc-link no-underline">dawn orange</span> 是唯一的重點色。亮色模式的 #A94700 在 paper 上對比 5.51:1,可作為可操作的連結;暗色模式的 #E59B5B 同時用於連結與編者口吻。</p>}>
       <Section label="TOKENS" title="色彩代幣">
         <div className="divide-y overflow-hidden rounded-xl border bg-card">
           <div className="hidden grid-cols-[1.2fr_1fr_1fr_1.6fr] gap-4 px-5 py-2 sm:grid">
-            {["TOKEN", "LIGHT", "DARK", "USAGE"].map((h) => <span key={h} className="kicker text-faint">{h}</span>)}
+            {["TOKEN", "LIGHT", "DARK", "USAGE"].map((h) => <span key={h} className="kicker text-muted-foreground">{h}</span>)}
           </div>
           {tokens.map(([n, l, d, u]) => (
             <div key={n} className="grid grid-cols-2 gap-4 px-5 py-4 sm:grid-cols-[1.2fr_1fr_1fr_1.6fr] sm:items-center">
@@ -48,6 +38,30 @@ function ColorPage() {
       </Section>
       <Section label="RULE" title="使用原則" why="封面是黑白的,只有編輯的聲音帶有溫度。重點色越少,它說話時越有力量。">
         <Rule do="以單色建立層次;黎明橘只用於連結、編者按的直線、小型標記。" dont="用黎明橘填滿大面積背景、按鈕或插圖;把 success 當作第二重點色。" />
+      </Section>
+      <Section label="SEMANTIC ALIASES" title="值不變，語意更清楚">
+        <p className="leading-[1.9]">基礎代幣描述材料，語意別名描述任務。元件優先用角色；切換模式時，只換基礎值，不在每個元件重寫顏色。</p>
+        <SpecTable headers={["角色", "CSS 別名", "對映"]} rows={[
+          ["Text", "--text-primary / --text-secondary / --text-meta", "ink / inkSoft / muted"],
+          ["Surface", "--surface-page / --surface-inset / --surface-raised", "paper / paperDeep / card"],
+          ["Line", "--line-subtle / --line-strong", "border / strong"],
+          ["Accent", "--accent", "dawn → 連結、編者聲音、小標記"],
+          ["Status", "--status-success", "success → 狀態圖形，文字仍用 ink"],
+        ]} />
+        <Code>{`:root {
+  --text-primary: var(--ink); --text-secondary: var(--ink-soft);
+  --text-meta: var(--muted); --surface-page: var(--paper);
+  --surface-inset: var(--paper-deep); --surface-raised: var(--card);
+  --line-subtle: var(--border); --line-strong: var(--strong);
+  --accent: var(--dawn); --status-success: var(--success);
+}`}</Code>
+      </Section>
+      <Section label="PAIRING" title="配對與面積">
+        <SpecTable headers={["用途", "前景 / 背景", "限制"]} rows={[
+          ["閱讀", "inkSoft / paper", "長文不降低透明度"], ["圖說", "muted / paper", "faint 不作必要文字"],
+          ["主要按鈕", "paper / ink", "不改成橘色填底"], ["狀態", "ink 文字 + success 圖形", "不以顏色單獨傳遞資訊"],
+        ]} />
+        <Rule do="讓墨紙占據版面；曙光橘只作節制的語意訊號。" dont="用橘色鋪滿背景、卡片或插圖；將歷史配色帶回主題。" />
       </Section>
       <Section label="CSS" title="複製代幣">
         <Code>{`:root {

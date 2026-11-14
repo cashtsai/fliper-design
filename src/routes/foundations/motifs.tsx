@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Code, DocPage, Example, Section } from "@/components/ds/doc";
+import { Code, DocPage, Example, Section, Rule } from "@/components/ds/doc";
 import { Diamond, Hairline, Masthead, StrongRule } from "@/components/ds/editorial";
 import { seo } from "@/lib/seo";
 
@@ -25,6 +25,13 @@ function MotifsPage() {
       </Section>
       <Section label="04 · MASTHEAD" title="刊頭 Masthead" why="置中的 FLiPER 字標 + 細線 + 字距拉開的 kicker,讓任何畫面都像一期刊物。">
         <Example><Masthead /></Example>
+      </Section>
+      <Section label="COMPOSITION" title="何時停頓，何時劃界">
+        <p className="leading-[1.9]">Hairline 分隔同層資訊，Strong Rule 宣告大章節，◆ 給閱讀一個停頓；Masthead 只在一期內容的入口使用。它們不是每個容器都要加上的裝飾。</p>
+        <Rule do="讓記號服從章節結構；純裝飾 ◆ 使用 aria-hidden。" dont="同一斷點疊上細線、粗線與多顆菱形，或把細線當控制邊框。" />
+        <Code lang="HTML">{`<hr /> <!-- 語意分節 -->
+<div aria-hidden="true">◆</div> <!-- 純裝飾 -->
+<!-- 互動控制另有焦點樣式；記號本身沒有 hover / disabled -->`}</Code>
       </Section>
     </DocPage>
   );

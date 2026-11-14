@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Code, DocPage, Example, Rule, Section } from "@/components/ds/doc";
 import { Byline } from "@/components/ds/editorial";
+import { ComponentGuide } from "@/components/ds/atlas";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/components/byline")({
@@ -15,6 +16,7 @@ export const Route = createFileRoute("/components/byline")({
         <Code lang="SWIFT">{`FLiPERByline(name: "林以晴", column: "設計師的日常")`}</Code>
         <Code lang="HTML">{`<p class="byline"><span class="name">林以晴</span>｜<span class="column">設計師的日常</span></p>`}</Code>
       </Section>
+      <ComponentGuide usage="用在文章標題之下、封面卡末尾與專欄列表；把作者與專欄視為不同層級，不拿它代替出版日期。" states={["姓名宋體、專欄 muted 黑體，全形 ｜ 分隔；長名允許自然換行。", "靜態署名無 hover；若姓名連到作者頁，僅連結文字有底線回饋。", "只有真實作者連結進入 Tab 順序，保留 focus-visible 外框。", "靜態資訊沒有 disabled；作者未知時寫「FLiPER 編輯室」，不降低整列透明度。"]} good="保持 name ｜ column 與可讀對比；長名字完整顯示。" bad="加入 by、半形 |、斜線，或把作者名字截成無法辨認的縮寫。" token="FLiPERByline(name:column:)" />
     </DocPage>
   ),
 });

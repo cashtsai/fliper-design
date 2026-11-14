@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DocPage, Example, Section } from "@/components/ds/doc";
+import { Code, DocPage, Example, Rule, Section } from "@/components/ds/doc";
 import { AppStoreBadge, CoverCard, Diamond, EditorsNote, Masthead, PrimaryButton } from "@/components/ds/editorial";
 import { seo } from "@/lib/seo";
 
@@ -21,6 +21,17 @@ export const Route = createFileRoute("/patterns")({
           <p className="mx-auto max-w-md text-sm leading-relaxed">下載 FLiPER App,每天一篇,從渺小的自己出發。</p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4"><AppStoreBadge /><PrimaryButton>投稿你的故事</PrimaryButton></div>
         </Example>
+      </Section>
+      <Section label="CONTENT CONTRACT" title="模式背後的內容順序">
+        <p className="leading-[1.9]">Daily Pick 是一次明確的編輯選擇，不是無限捲動的資訊流。載入時保留封面比例；圖片缺失仍顯示文字標題與署名。無內容時寫明當日尚未出刊，讀取失敗提供重試，不用空白封面假裝完成。</p>
+        <Rule do="先作品，再作者與脈絡，最後是編輯聲音或下一步邀請。" dont="以多個 CTA 打斷閱讀，或用編者按替代廣告與錯誤訊息。" />
+        <Code lang="CONTENT">{`Daily Pick: masthead → cover card → editor's note
+Editor's Voice: story → one editorial note → related reading
+Storyteller CTA: invitation → supporting line → one primary action
+States: loading / content / empty / error; preserve reading order`}</Code>
+      </Section>
+      <Section label="ADAPTATION" title="同一個節奏，不同的螢幕">
+        <p className="leading-[1.9]">手機依閱讀順序單欄呈現；桌面可將註解放在側欄，但不改變主內容順序。CTA 放在段落或文章結尾，文字可換行，按鈕不遮住正文；動態內容更新需保留焦點位置。</p>
       </Section>
     </DocPage>
   ),

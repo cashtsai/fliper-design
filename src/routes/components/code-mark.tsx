@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Code, DocPage, Example, Section } from "@/components/ds/doc";
 import { CodeMark } from "@/components/ds/editorial";
+import { ComponentGuide } from "@/components/ds/atlas";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/components/code-mark")({
@@ -15,6 +16,7 @@ export const Route = createFileRoute("/components/code-mark")({
         <Code>{`.code-mark { font-family: ui-monospace, monospace; letter-spacing: 4px;
   font-variant-numeric: tabular-nums; font-size: 12px; color: var(--muted); }`}</Code>
       </Section>
+      <ComponentGuide usage="用於封面、文章索引與收藏列表，將文章 ID 轉成可辨認的期號；它不是日期，也不是隨機裝飾。" states={["文章 ID 左側補 0 成六位數；等寬字、tabular-nums、muted 色。", "靜態期號無 hover；若提供複製操作，另加有名稱的複製按鈕。", "數字本身不進入 Tab；複製按鈕顯示焦點與複製結果。", "無 disabled；缺少 ID 時不顯示假的 000000，等待真實資料。"]} good="保留六位文章索引，複製時返回同樣的六位字串。" bad="用裝飾性的隨機號碼冒充文章 ID，或讓期號搶過標題。" token="FLiPERCodeMark(postID:)" />
     </DocPage>
   ),
 });

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Code, DocPage, Example, Rule, Section } from "@/components/ds/doc";
 import { EditorsNote } from "@/components/ds/editorial";
+import { ComponentGuide } from "@/components/ds/atlas";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/components/editors-note")({
@@ -17,6 +18,7 @@ export const Route = createFileRoute("/components/editors-note")({
 .editors-note p { font-family: var(--font-serif); line-height: 1.9; }
 .editors-note .attr { font: 11px ui-monospace; letter-spacing: .18em; color: var(--accent); }`}</Code>
       </Section>
+      <ComponentGuide usage="用於選文理由或編輯室對讀者說的一段話；接在內容之後或靠近閱讀入口。每篇最多一則，不作系統提示或一般引言。" states={["4px 曙光橘直線、宋體內文、固定編輯室署名；文字不需額外底色。", "靜態編者按無 hover；段內真實連結保留底線。", "編者按本身不進入 Tab；段內連結顯示外框，不能被容器裁掉。", "無 disabled；缺少編輯文案時整則不呈現，不顯示空框。"]} good="保留編輯室口吻與固定署名，把橘色留給真正的編輯聲音。" bad="將橘色直線當錯誤、提醒、廣告或受訪者的一般引言。" token="FLiPEREditorNote(text:attribution:)" />
     </DocPage>
   ),
 });

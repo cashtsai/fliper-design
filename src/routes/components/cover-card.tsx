@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Code, DocPage, Example, Section } from "@/components/ds/doc";
 import { CoverCard } from "@/components/ds/editorial";
+import { ComponentGuide } from "@/components/ds/atlas";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/components/cover-card")({
@@ -17,6 +18,7 @@ export const Route = createFileRoute("/components/cover-card")({
         <Code lang="SWIFT">{`FLiPERCoverCard(post: post)
 // image → kicker + codeMark → serif title → hairline → byline`}</Code>
       </Section>
+      <ComponentGuide usage="用於每日精選、文章列表與收藏；每張卡只表達一篇文章，不在卡內嵌另一張卡或多組主要操作。" states={["圖片 → kicker + 期號 → 宋體標題 → 細線 → 署名；圖片固定 4:3。", "靜態範例無 hover；接上文章連結後以標題底線或邊線回饋，不改圖片色調。", "若整張卡可開啟文章，只建立一個主連結焦點；不要重複可點巢狀連結。", "文章不可讀時保留標題與明確狀態文字，取消連結；不只把卡片變灰。"]} good="長標題自然換行；保留相同比例圖片與同一套編輯層級。" bad="文字覆蓋照片、橘色鋪底、卡片套卡片，或只用照片傳達文章標題。" token="FLiPERCoverCard(post:)" />
     </DocPage>
   ),
 });

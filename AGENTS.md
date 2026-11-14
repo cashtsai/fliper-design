@@ -29,3 +29,7 @@ use the editor.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
 - Site shell (sidebar, theme toggle) lives in src/components/ds/shell.tsx wrapped around <Outlet /> in __root; editorial building blocks in src/components/ds/editorial.tsx and doc scaffolding in doc.tsx — pages compose these so the spec site uses its own components.
+
+- Canonical palette, type scale and contrast calculations live in src/lib/atlas.ts so documentation and numeric tests share one source.
+- Shared spec tables and per-component behavioral guidance live in src/components/ds/atlas.tsx; static editorial content must not acquire fake focus or disabled states.
+- Retired palette tokens are scoped to .heritage-page; historical lockups reuse the official asset geometry so archive colors cannot enter current pages.

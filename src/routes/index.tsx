@@ -24,7 +24,7 @@ function Overview() {
         <p className="font-serif text-2xl font-semibold leading-relaxed text-ink sm:text-3xl">從渺小的自己出發,<br />成為翻轉世界的人</p>
         <p className="kicker mt-5 text-dawn">KEEP EXPLORING</p>
       </div>
-      <DocPage kicker="OVERVIEW · 品牌主張" title="一份規範,兩個平台" intro={<p>FLiPER Design System 是 FLiPER 設計語言的正典。未來每一次 App 與網站改版,都從這裡出發——iOS 的 <code className="font-mono text-sm">FLiPERDesign</code> 套件與 flipermag.com 主題,皆由此規範生成。</p>}>
+      <DocPage kicker="OVERVIEW · 品牌主張" title="一份規範,兩個平台" intro={<p>FLiPER Design System 是 FLiPER 設計語言的正典。未來每一次 App 與網站改版,都從這裡出發——iOS 的 <code className="font-mono text-sm">FLiPERDesign</code> 套件與 flipermag.com 主題,皆以此規範為參考。</p>}>
         <div className="grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-3">
           {pillars.map(([k, t, d]) => (
             <div key={k} className="bg-card p-6">
@@ -39,7 +39,7 @@ function Overview() {
         </Section>
         <Section label="START HERE" title="從哪裡開始">
           <ul className="divide-y border-y">
-            {([["/foundations/color","Color","墨、紙與黎明橘"],["/foundations/typography","Typography","Slab 襯線標題與宋體封面"],["/cover-system","The Cover System","一切的源頭"],["/platforms","Platforms","對應 iOS 與 Web"]] as const).map(([to,a,b])=> (
+            {([["/brand-story","Brand Story","從渺小出發的方法"],["/design-heritage","Design Heritage","三代識別的演進"],["/foundations/accessibility","Accessibility","讓每個人讀得見"],["/foundations/color","Color","墨、紙與黎明橘"],["/foundations/typography","Typography","Slab 襯線標題與宋體封面"],["/cover-system","The Cover System","一切的源頭"],["/platforms","Platforms","對應 iOS 與 Web"]] as const).map(([to,a,b])=> (
               <li key={to}><Link to={to} className="flex items-baseline justify-between py-4 hover:text-ink"><span className="font-display text-lg font-semibold text-ink">{a}</span><span className="text-sm text-muted-foreground">{b} →</span></Link></li>
             ))}
           </ul>

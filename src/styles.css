@@ -1,6 +1,6 @@
 @import "tailwindcss" source(none);
-@source "../src";
 @import "tw-animate-css";
+@source "../src";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -40,6 +40,14 @@
   --color-strong: var(--strong);
   --color-input: var(--border);
   --color-ring: var(--dawn);
+  --shadow-editorial: var(--elevation-card);
+  --shadow-cover: var(--elevation-cover);
+  --color-history-purple: var(--history-purple);
+  --color-history-active: var(--history-active);
+  --color-history-hover: var(--history-hover);
+  --color-history-yellow: var(--history-yellow);
+  --color-history-ink: var(--history-ink);
+  --color-history-white: var(--history-white);
 }
 
 :root {
@@ -55,6 +63,18 @@
   --dawn: #a94700;
   --tan: #b49a7c;
   --success: #2bab9f;
+  --elevation-card: 0 8px 24px -12px color-mix(in srgb, var(--ink) 16%, transparent);
+  --elevation-cover: 0 30px 60px -30px color-mix(in srgb, var(--ink) 35%, transparent);
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-soft);
+  --text-meta: var(--muted);
+  --surface-page: var(--paper);
+  --surface-inset: var(--paper-deep);
+  --surface-raised: var(--card);
+  --line-subtle: var(--border);
+  --line-strong: var(--strong);
+  --accent: var(--dawn);
+  --status-success: var(--success);
   color-scheme: light;
 }
 
@@ -99,3 +119,24 @@
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
 }
+
+/* Retired colors exist only inside the archival page, never as global roles. */
+.heritage-page {
+  --history-purple: #39308e;
+  --history-active: #463fbb;
+  --history-hover: #27206b;
+  --history-yellow: #ffc612;
+  --history-ink: #111111;
+  --history-white: #ffffff;
+}
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--dawn);
+  outline-offset: 4px;
+}
+.skip-link { position: fixed; top: 1rem; left: 1rem; z-index: 100; transform: translateY(-200%); background: var(--ink); color: var(--paper); padding: .75rem 1rem; }
+.skip-link:focus { transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
+.font-display { font-synthesis: none; }
